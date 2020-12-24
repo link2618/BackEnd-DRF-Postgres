@@ -20,6 +20,9 @@ En este proyecto se utiliza Django Rest Framework (DRF) para crear la parte logi
 - Para variables de entorno<br>
 ``pip install python-decouple``
 
+-Para Cors
+`python -m pip install django-cors-headers`
+
 ##Migracion para la BD
 
 -Primera vez: para crear tablas por default<br>

@@ -25,6 +25,9 @@ class Registrar(APIView):
                     return Response(mensaje, status=status.HTTP_400_BAD_REQUEST)
                 else:
                     patron = re.compile(r"^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$")
+                    #patron = re.compile(r"^[a-zA-Z0-9[:punct:]?!]+\S{8,16}$")
+                    print(patron)
+                    print(patron.search(passw))
                     if patron.search(passw) != None:
                         serializer.save()
                         mensaje = {
