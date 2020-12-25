@@ -3,10 +3,11 @@
 En este proyecto se utiliza Django Rest Framework (DRF) para crear la parte logica de un proyecto. La BD utilizada es PostgreSQL.
 
 <details>
-  <summary>Ver enlaces de Swagger</summary>
+  <summary>Documentacion</summary>
   
   [Swagger2](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2) <br>
-  [Swagger UI](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui)
+  [Swagger UI](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui) <br>
+  [Token](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html)
 </details>
 
 ##Pasos para librerias instaladas
@@ -43,3 +44,6 @@ En este proyecto se utiliza Django Rest Framework (DRF) para crear la parte logi
 `pip freeze > requirements.txt`<br>
 Para instalarlos<br>
 `pip install -r requirements.txt`
+
+#Token
+`pip install djangorestframework-simplejwt`

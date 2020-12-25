@@ -57,3 +57,12 @@ class User(models.Model):
 
     class Meta:
         verbose_name_plural = "Users"
+
+class Token(models.Model):
+    access = models.CharField(max_length=256, primary_key=True, unique=True, help_text='Token de acceso')
+    refresh = models.CharField(max_length=256, blank=True, null=True, help_text='Refresh Token')
+    dateCreated = models.DateTimeField('Fecha De Creación', auto_now_add=True)
+    user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = "Tokens"
