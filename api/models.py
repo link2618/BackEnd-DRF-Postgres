@@ -20,6 +20,7 @@ class User(models.Model):
     password = models.CharField(max_length=100, help_text='Contraseña del usuario')
     tipo = models.CharField(max_length=100, help_text='Tipo de Usuario', default='CLIENTE', blank=True)
 
+    '''
     def __init__(self, name, lastName, date, email, password, tipo):
         super(User, self).__init__()
         self.id = str(uuid.uuid4())
@@ -30,10 +31,17 @@ class User(models.Model):
         self.password = password
         self.tipo = tipo
 
+    def __init__(self, email, password):
+        super(User, self).__init__()
+        self.email = email
+        self.password = password
+    '''
+
     def __str__(self):
         return '{}'.format(self.id)
 
     def save(self, *args, **kwargs):
+        self.id = str(uuid.uuid4())
         self.tipo = self.tipo.upper()
         hoy = datetime.date.today()
         if (hoy.month > self.date.month):
