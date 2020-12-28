@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 # Create your views here.
 from api.models import User
@@ -135,3 +137,17 @@ class Login(APIView):
                 'message': 'Datos incorrecto.'
             }
             return Response(mensaje, status=status.HTTP_200_OK)
+
+class Logout(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        #Valor recibificdo por url
+        #data = request.data
+        #id = data.get('id')
+        #print(id)
+        #print(request)
+        mensaje = {
+            'message': 'Exito.'
+        }
+        return Response(mensaje, status=status.HTTP_200_OK)
